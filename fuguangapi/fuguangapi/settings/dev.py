@@ -71,9 +71,25 @@ WSGI_APPLICATION = 'fuguangapi.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'dj_db_conn_pool.backends.mysql',
+        'NAME': 'fuguang',
+        'PORT': 3306,
+        'HOST': '127.0.0.1',
+        'USER': 'fuguang_user',
+        'PASSWORD': 'fuguang',
+        'OPTIONS': {
+            'charset': 'utf8mb4',  # 连接选项配置,mysql8.0以上无需配置
+        },
+        'POOL_OPTIONS': {  # 连接池的配置信息
+            'POOL_SIZE': 10,  # 连接池默认创建的链接对象的数量
+            'MAX_OVERFLOW': 10  # 连接池默认创建的链接对象的最大数量
+        }
     }
 }
 
@@ -173,4 +189,10 @@ LOGGING = {
             'propagate': True,  # 是否在django命名空间对应的日志处理流程结束以后，冒泡通知其他的日志功能。True表示允许
         },
     }
+}
+
+# drf配置
+REST_FRAMEWORK = {
+    # 自定义异常处理
+    'EXCEPTION_HANDLER': 'fuguangapi.utils.exceptions.custom_exception_handler',
 }
