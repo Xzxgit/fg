@@ -241,3 +241,4 @@ SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "session"
 
 CORS_ALLOW_ALL_ORIGINS = True
+

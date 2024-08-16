@@ -38,3 +38,4 @@ class Banner(BaseModel):
         db_table = "fg_banner"
         verbose_name = "轮播广告"
         verbose_name_plural = verbose_name
+
