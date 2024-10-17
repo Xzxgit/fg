@@ -7,3 +7,5 @@ NAV_FOOTER = 1
 NAV_HEADER_SIZE = 7
 # 脚部导航的显示数量
 NAV_FOOTER_SIZE = 7
+# 轮播广告的显示数量
+BANNER_SIZE = 10
