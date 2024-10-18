@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',  # cors跨域子应用
     'home',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -262,3 +263,6 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = BASE_DIR / "uploads"
 # 访问上传文件的url地址前缀
 MEDIA_URL = "/uploads/"
+
+# 自定义认证模型类
+AUTH_USER_MODEL = 'users.User'
